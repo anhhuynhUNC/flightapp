@@ -23,15 +23,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ser.std.IterableSerializer;
 
+
 /**
- * @author sirdu j
- */
-/**
- * @author sirdu
- *
- */
-/**
- * @author sirdu
+ * @author anh
  *
  */
 @Service
