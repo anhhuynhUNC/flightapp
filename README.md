@@ -20,7 +20,8 @@ Người dùng chỉ cần chọn điểm đến, điểm đi và loại vé th�
 Click vào từng cột thì hiện giá, còn click vào nút tháng thì sẽ hiện tháng (nó là cái chữ xem thêm khi hover).
 
 # Database
-Truy cập database cần thay đổi trong /src/main/resources/application.properties
+Truy cập database cần thay đổi trong /src/main/resources/application.properties.\
+Em có đính kèm file flight.sql có schema và vài data thôi.
 
 # Chưa hoàn thiện
 Mới có 2 loại vé là một chiều, econ và một chiều, business là có chuyến và bảng.\
