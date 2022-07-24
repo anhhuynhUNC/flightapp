@@ -18,6 +18,10 @@ Sort được theo ngày/ giá.
 # Option
 Người dùng chỉ cần chọn điểm đến, điểm đi và loại vé thì bảng giá và list sẽ hiện.\
 Click vào từng cột thì hiện giá, còn click vào nút tháng thì sẽ hiện tháng (nó là cái chữ xem thêm khi hover).
+
+#database
+Truy cập database cần thay đổi trong /src/main/resources/application.properties
+
 # Chưa hoàn thiện
 Mới có 2 loại vé là một chiều, econ và một chiều, business là có chuyến và bảng.\
 Nếu khứ hồi thì em định hiển thị hai bảng, của chiều đi và chiều về để người dùng so sánh.\
