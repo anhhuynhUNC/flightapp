@@ -24,10 +24,10 @@ function Search(props) {
     //update data everytime inputs change
     useEffect(() => {
         if (hasChange) {
-            getFlightsFrom(inputs.departInput, inputs.arriveInput, 1).then(val => {
+            getFlightsFrom(inputs.departInput, inputs.arriveInput, inputs.ticketInput).then(val => {
                 props.method(val, true);
             });
-            getMaxFrom(inputs.departInput, inputs.arriveInput, 1).then(val => {
+            getMaxFrom(inputs.departInput, inputs.arriveInput, inputs.ticketInput).then(val => {
                 props.method(val, false)
             })
             console.log(inputs)
