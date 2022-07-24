@@ -3,7 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort } from '@fortawesome/free-solid-svg-icons'
 import { faRegistered as faSortLight } from '@fortawesome/free-regular-svg-icons'
-import {toLocaleDate, getTime} from './Utility'
+import { toLocaleDate, getTime } from './Utility'
 
 let port = "localhost";
 
@@ -23,7 +23,7 @@ function List(props) {
 
     // load once when data is updated to actual display
     useEffect(() => {
-        console.log(data);
+        //console.log(data);
         setDisplay(data[0]);
         setLoadIndex(0)
         if (data[0].length !== 0) setButton(true)
@@ -57,8 +57,8 @@ function List(props) {
                             <tr className="flights-table-value-row" key={val.orderId + ""}>
                                 <td ><p>{val.outDepartCity} </p></td>
                                 <td><p>{val.outArriveCity}</p> </td>
-                                <td><p style ={{margin: 0}}>Khởi hành: {toLocaleDate(val.date)}</p><br></br>
-                                <p style ={{margin: 0}}>Lúc: {getTime(val.outFlightTime)}</p></td>
+                                <td><p style={{ margin: 0 }}>Khởi hành: {toLocaleDate(val.date)}</p><br></br>
+                                    <p style={{ margin: 0 }}>Lúc: {getTime(val.outFlightTime)}</p></td>
                                 <td><p>{val.ticketId !== undefined ? (val.ticketSeat + " | " + val.ticketType) : "Loading"}</p></td>
                                 <td><p>{val.price}</p></td>
                             </tr>
@@ -70,7 +70,7 @@ function List(props) {
             <div> {/*TODO : fix when no routes*/}
                 {buttonToggle ? <button className='list-load-button' onClick={() => { handleClick(loadDisplay, data, setButton, loadIndex, setDisplay, setLoadIndex) }}>Load More</button> : <span></span>}
             </div>
-           {(data[0].length == 0 && state.depart !== 'default' && state.arrive !=='default') ? <div>Không có kết quả</div> : <div></div>}
+            {(data[0].length == 0 && state.depart !== 'default' && state.arrive !== 'default') ? <div>Không có kết quả</div> : <div></div>}
 
         </div>
 
@@ -105,7 +105,7 @@ function restrictLoad(val) {
 }
 
 async function retreiveAll(depart, arrive, ticket) {
-    if (depart == 'default' || arrive == 'default' || ticket =='default') return [];
+    if (depart == 'default' || arrive == 'default' || ticket == 'default') return [];
     const option = await axios({
         method: 'GET',
         url: `http://${port}:8080/flight/order/all/sorted/p?depart=` + depart + '&arrive=' + arrive + '&ticket=' + ticket,
@@ -117,10 +117,10 @@ async function retreiveAll(depart, arrive, ticket) {
 }
 
 async function retreiveAllByDate(depart, arrive, ticket) {
-    if (depart == 'default' || arrive == 'default' || ticket =='default') return [];
+    if (depart == 'default' || arrive == 'default' || ticket == 'default') return [];
     const option = await axios({
         method: 'GET',
-        url: `http://${port}:8080/flight/order/all/sorted/d?depart=` + depart + '&arrive=' + arrive  + '&ticket=' + ticket,
+        url: `http://${port}:8080/flight/order/all/sorted/d?depart=` + depart + '&arrive=' + arrive + '&ticket=' + ticket,
         contentType: "application/json",
         dataType: "json"
     })

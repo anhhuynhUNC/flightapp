@@ -78,7 +78,7 @@ async function GetCities() {
     return option.data;
 }
 
-async function getTickets(){
+async function getTickets() {
     const option = await axios({
         method: 'GET',
         url: `http://${port}:8080/flight/ticket/all`,
@@ -89,4 +89,4 @@ async function getTickets(){
     return option.data;
 }
 
-export { RetrieveVnaAirport, cityMapping ,sortByAlphabet, getTickets};
+export { RetrieveVnaAirport, cityMapping, sortByAlphabet, getTickets };

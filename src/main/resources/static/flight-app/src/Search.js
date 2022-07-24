@@ -5,7 +5,7 @@ import { RetrieveVnaAirport, cityMapping, sortByAlphabet, getTickets } from "./R
 let port = "localhost";
 
 function Search(props) {
-    let [inputs, setInput] = useState({ departInput: 'default', arriveInput: 'default' , ticketInput: 1}); //default
+    let [inputs, setInput] = useState({ departInput: 'default', arriveInput: 'default', ticketInput: 1 }); //default
     let [cities, setCity] = useState([]);
     let [hasChange, setState] = useState(false);
     let [data, setData] = useState([]);
@@ -16,9 +16,9 @@ function Search(props) {
 
     // run once for retreiving cities and ticket
     useEffect(() => {
-        RetrieveVnaAirport().then(val => { console.log(val); setData(val); setCity(val[0]); setArrive(val[0]) })
-        getTickets().then(val => {console.log(val) ;setTicket(val)})
-        cityMapping().then(val => { setMapping(val); console.log(val) })
+        RetrieveVnaAirport().then(val => { setData(val); setCity(val[0]); setArrive(val[0]) })
+        getTickets().then(val => { setTicket(val) })
+        cityMapping().then(val => { setMapping(val) })
     }, []);
 
     //update data everytime inputs change
@@ -26,11 +26,11 @@ function Search(props) {
         if (hasChange) {
             getFlightsFrom(inputs.departInput, inputs.arriveInput, inputs.ticketInput).then(val => {
                 props.method(val, true);
+                // console.log(val);
             });
             getMaxFrom(inputs.departInput, inputs.arriveInput, inputs.ticketInput).then(val => {
                 props.method(val, false)
             })
-            console.log(inputs)
             props.loadingCallback(false);
             props.updateDepart(inputs.departInput);
             props.updateArrive(inputs.arriveInput);
@@ -86,26 +86,24 @@ function Search(props) {
 }
 
 async function getFlightsFrom(depart, arrive, ticket) {
-    if (depart == 'default' || arrive == 'default' || ticket =='default') return null
+    if (depart == 'default' || arrive == 'default' || ticket == 'default') return null
     const option = await axios({
         method: 'GET',
         url: `http://${port}:8080/flight/display?depart=${depart}&arrive=${arrive}&ticket=${ticket}`,
         contentType: "application/json",
         dataType: "json"
     })
-
     return option.data;
 }
 
 async function getMaxFrom(depart, arrive, ticket) {
-    if (depart == 'default' || arrive == 'default' || ticket =='default') return null
+    if (depart == 'default' || arrive == 'default' || ticket == 'default') return null
     const option = await axios({
         method: 'GET',
         url: `http://${port}:8080/flight/maxDisplay?depart=${depart}&arrive=${arrive}&ticket=${ticket}`,
         contentType: "application/json",
         dataType: "json"
     })
-
     return option.data;
 }
 

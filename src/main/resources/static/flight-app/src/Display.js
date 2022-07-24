@@ -107,7 +107,7 @@ function Display(props) {
                 event.native.target.style.cursor = '';
                 return;
             }
-            
+
             if (chartElement[0]) {
                 event.native.target.style.cursor = chartElement[0].element.$context.raw.price !== 0 ? 'pointer' : '';
             } else {
@@ -250,9 +250,8 @@ function Display(props) {
 
             if (element.price !== 0) {
                 getFlightOnDay(element.dayId, props.depart, props.arrive, props.ticket).then(val => {
-                    console.log(val);
+                    //console.log(val);
                     if (val.length != 0) {
-
                         props.daycallback(val);
                         props.daydisplaycb(false)
                         props.modedisplay(2);
@@ -265,9 +264,7 @@ function Display(props) {
     };
 
     let monthChooser = props.data.map(function (val, i) { return i });
-    console.log(monthChooser);
-    /*Testing
-    */
+
     return (
 
         <div className="chart-container">

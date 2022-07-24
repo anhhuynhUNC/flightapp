@@ -67,7 +67,6 @@ function App() {
    */
   async function setUp(val, fn) {
     if (val == [] || val == undefined || val == null) {
-      console.log("HHHHHHHHHHHERE");
       setDisplayMode(false);
       return;
     }
@@ -87,9 +86,6 @@ function App() {
     let timestamp = Date.parse(val[val.length - 1].date);
     let finalDate = new Date(timestamp);
     let firstDate = new Date(Date.parse(val[0].date))
-    console.log(finalDate);
-    console.log(firstDate);
-    console.log(monthDiff(firstDate, finalDate));
     for (let index = 0; index < monthDiff(firstDate, finalDate) + 1; index += 1) {  //firstMonth
       let monthArray = [];
       let monthSeperatorSub = [];
@@ -139,13 +135,11 @@ function App() {
       }
       label.push(subLabel)
     }
-    console.log(displayArray);
     if (fn) {
       setContent(displayArray);
     } else {
       setSecondData(displayArray);
     }
-    console.log(monthSeperator)
     setAnnotation(monthSeperator);
     setLable(label);
 
@@ -157,7 +151,7 @@ function App() {
       case 0:
         return (<div></div>);
       case 1:
-        return (<MonthList data={null} depart={globalDepart} arrive={globalArrive} monthId={globalMonthId} ticket = {globalTicket} modedisplay={setModeDisplay} daycallback={setDayData} loading={loading} loadingCallback={setloading} switchingRoute = {switchingRoute} switchcallback = {setSwitch} />)
+        return (<MonthList data={null} depart={globalDepart} arrive={globalArrive} monthId={globalMonthId} ticket={globalTicket} modedisplay={setModeDisplay} daycallback={setDayData} loading={loading} loadingCallback={setloading} switchingRoute={switchingRoute} switchcallback={setSwitch} />)
       case 2:
         return (<FlightOfDate data={dayData} dayLoading={loading} modedisplay={setModeDisplay} />)
     }
@@ -166,13 +160,13 @@ function App() {
   return (
     <div className="App">
       <div className='display-container'>
-        {displayMode ? <Display data={data} data2={secondData} annotation={annotation} label={label} depart={globalDepart} arrive={globalArrive} ticket = {globalTicket} daycallback={setDayData} loading={loading} daydisplaycb={setloading} monthcallback={setMonthId} modedisplay={setModeDisplay} switchcallback = {setSwitch}/> : <div></div>}
+        {displayMode ? <Display data={data} data2={secondData} annotation={annotation} label={label} depart={globalDepart} arrive={globalArrive} ticket={globalTicket} daycallback={setDayData} loading={loading} daydisplaycb={setloading} monthcallback={setMonthId} modedisplay={setModeDisplay} switchcallback={setSwitch} /> : <div></div>}
       </div>
       <br></br>
-      <Search callback={setContent} method={setUp} callback2={setSecondData} depart={globalDepart} arrive={globalArrive} ticket = {globalTicket} updateDepart={setGlobalDepart} updateArrive={setGlobalArrive} updateTicket = {setGlobalTicket} loading={loading} loadingCallback = {setloading} modedisplay = {setModeDisplay}/>
+      <Search callback={setContent} method={setUp} callback2={setSecondData} depart={globalDepart} arrive={globalArrive} ticket={globalTicket} updateDepart={setGlobalDepart} updateArrive={setGlobalArrive} updateTicket={setGlobalTicket} loading={loading} loadingCallback={setloading} modedisplay={setModeDisplay} />
       {modeFunc()}
       <p>Kiểm tra font chữ.</p>
-      <List depart={globalDepart} arrive={globalArrive} ticket = {globalTicket} displayCallback={setDisplayMode} />
+      <List depart={globalDepart} arrive={globalArrive} ticket={globalTicket} displayCallback={setDisplayMode} />
     </div >
   );
 }

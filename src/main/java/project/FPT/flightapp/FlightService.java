@@ -23,7 +23,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ser.std.IterableSerializer;
 
-
 /**
  * @author anh
  *
@@ -79,18 +78,22 @@ public class FlightService {
 	}
 
 	/*
-	 * Services for retrieval of flights from certain conditions
-	 * Important for setting up the necessary displays for application
+	 * Services for retrieval of flights from certain conditions Important for
+	 * setting up the necessary displays for application
 	 * 
 	 */
 
 	/**
-	 * Retrieve all the flights from the route specified by the input destination and arrival, as well as the type of ticket.
+	 * Retrieve all the flights from the route specified by the input destination
+	 * and arrival, as well as the type of ticket.
 	 * 
-	 * @param depart : the Departure airport represented by the VNA code (e.g. "HAN" or "SGN")
-	 * @param arrive : the Arrival airport represented by the VNA code (e.g. "HAN" or "SGN")
+	 * @param depart : the Departure airport represented by the VNA code (e.g. "HAN"
+	 *               or "SGN")
+	 * @param arrive : the Arrival airport represented by the VNA code (e.g. "HAN"
+	 *               or "SGN")
 	 * @param ticket : the type of ticket
-	 * @return The list of flight DTO, only populated by the cheapest flight in the day.
+	 * @return The list of flight DTO, only populated by the cheapest flight in the
+	 *         day.
 	 */
 	public List<FlightOrderDTO> getFlightsConfigCustom(String depart, String arrive, Integer ticket) {
 		// testing index
@@ -154,14 +157,17 @@ public class FlightService {
 		return result;
 	}
 
-
 	/**
-	 * Retrieve all the flights from the route specified by the input destination and arrival, as well as the type of ticket.
+	 * Retrieve all the flights from the route specified by the input destination
+	 * and arrival, as well as the type of ticket.
 	 * 
-	 * @param depart : the Departure airport represented by the VNA code (e.g. "HAN" or "SGN)
-	 * @param arrive : the Arrival airport represented by the VNA code (e.g. "HAN" or "SGN)
+	 * @param depart : the Departure airport represented by the VNA code (e.g. "HAN"
+	 *               or "SGN)
+	 * @param arrive : the Arrival airport represented by the VNA code (e.g. "HAN"
+	 *               or "SGN)
 	 * @param ticket : the type of ticket
-	 * @return The list of flight DTO, only populated by the most expensive flight in the day.
+	 * @return The list of flight DTO, only populated by the most expensive flight
+	 *         in the day.
 	 */
 	public List<FlightOrderDTO> getFlightsConfigCustomMax(String depart, String arrive, Integer ticket) {
 		// testing index
@@ -207,10 +213,16 @@ public class FlightService {
 				} else {
 					result.add(convertToDTO(curr));
 					index++;
-					if (iter.hasNext())
-						curr = iter.next();
-					else
-						continue;
+					while (iter.hasNext()) {
+						FlightOrder next = iter.next();
+						// handle edge cases where two flights on the same day has the same minimum
+						// price
+						if (!curr.getDayOfFlight().getDay().isEqual(next.getDayOfFlight().getDay())) {
+							// only first instance of day is displayed
+							curr = next;
+							break;
+						}
+					}
 				}
 			}
 		}
@@ -218,10 +230,10 @@ public class FlightService {
 		return result;
 	}
 
-	
 	/**
 	 * Retrieve all flights of a date, using custom fetch method
-	 * @param id the id of the date
+	 * 
+	 * @param id     the id of the date
 	 * @param depart the departure airport in code
 	 * @param arrive the arrival airport in code
 	 * @param ticket the ticket id
@@ -237,7 +249,8 @@ public class FlightService {
 
 	/**
 	 * Retrieve all flights of a month, using custom fetch method
-	 * @param id the id of the month
+	 * 
+	 * @param id     the id of the month
 	 * @param depart the departure airport in code
 	 * @param arrive the arrival airport in code
 	 * @param ticket the ticket id

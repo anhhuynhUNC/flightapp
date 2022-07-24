@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
@@ -6,6 +6,8 @@ import { toLocaleDate, sortByDate, sortByPrice } from './Utility.js'
 
 function FlightOfDate(props) {
     let [data, setData] = useState(props.data);
+
+    useEffect(() => { setData(props.data) }, [props.data])
 
     function daySort() {
         setData(sortByDate(data));
@@ -55,7 +57,7 @@ function FlightOfDate(props) {
 }
 
 function getTime(val) {
-    console.log(val);
+    //console.log(val);
     let timeStamp = Date.parse(val);
     let date = new Date(timeStamp);
 

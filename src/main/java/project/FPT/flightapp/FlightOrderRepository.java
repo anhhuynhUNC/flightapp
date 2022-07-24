@@ -35,15 +35,15 @@ public interface FlightOrderRepository extends JpaRepository<FlightOrder, Intege
 			"returnFlight.route.arrive" })
 	List<FlightOrder> findAll();
 
-	@Query(value = "select tbl.* from flightorder tbl INNER JOIN "
-			+ "flightdetail f1 on f1.FlightId = tbl.OutFlight INNER JOIN "
-			+ "(SELECT o.OrderId,Min(o.Price) minPrice, o.OutFlight, o.DateId FROM flightOrder o inner join flightdetail f on f.FlightId = o.OutFlight where f.RouteId = :route GROUP BY o.dateId) tbl1 "
-			+ "on tbl.DateId = tbl1.DateId where tbl.Price = tbl1.minPrice AND f1.RouteId = :route AND f1.DepartureTime >= :time AND TicketId = :ticket ORDER BY tbl.DateId", nativeQuery = true)
+		@Query(value = "select tbl.* from flightorder tbl INNER JOIN "
+				+ "flightdetail f1 on f1.FlightId = tbl.OutFlight INNER JOIN "
+				+ "(SELECT o.OrderId,Min(o.Price) minPrice, o.OutFlight, o.DateId FROM flightOrder o inner join flightdetail f on f.FlightId = o.OutFlight where f.RouteId = :route and o.ticketId = :ticket GROUP BY o.dateId) tbl1 "
+				+ "on tbl.DateId = tbl1.DateId where tbl.Price = tbl1.minPrice AND f1.RouteId = :route AND f1.DepartureTime >= :time AND TicketId = :ticket ORDER BY tbl.DateId", nativeQuery = true)
 	List<FlightOrder> customMinFind(@Param("time") LocalDateTime time, @Param("route") Integer route, @Param("ticket") Integer ticket);
 	
 	@Query(value = "select tbl.* from flightorder tbl INNER JOIN "
 			+ "flightdetail f1 on f1.FlightId = tbl.OutFlight INNER JOIN "
-			+ "(SELECT o.OrderId,Max(o.Price) minPrice, o.OutFlight, o.DateId FROM flightOrder o inner join flightdetail f on f.FlightId = o.OutFlight where f.RouteId = :route GROUP BY o.dateId) tbl1 "
+			+ "(SELECT o.OrderId,Max(o.Price) minPrice, o.OutFlight, o.DateId FROM flightOrder o inner join flightdetail f on f.FlightId = o.OutFlight where f.RouteId = :route and o.ticketId = :ticket GROUP BY o.dateId) tbl1 "
 			+ "on tbl.DateId = tbl1.DateId where tbl.Price = tbl1.minPrice AND f1.RouteId = :route AND f1.DepartureTime >= :time AND TicketId = :ticket ORDER BY tbl.DateId", nativeQuery = true)
 	List<FlightOrder> customMaxFind(@Param("time") LocalDateTime time, @Param("route") Integer route, @Param("ticket") Integer ticket);
 

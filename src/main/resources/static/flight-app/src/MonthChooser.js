@@ -35,7 +35,6 @@ function MonthChooser(props) {
                     return <button className={`month-button ${val === props.index ? 'active' : 'non-active'}`} id={'month-id-' + val} key={val} onClick={() => {
                         if (hasFlights(props.data[val])) {
                             props.setIndex(val);
-                            console.log(props.data[val]);
                         }
                     }}>
                         {hasFlights(props.data[val]) ?
