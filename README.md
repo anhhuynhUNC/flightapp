@@ -1,5 +1,5 @@
 # flightapp
-Web có 3 phần em để là Hiển thị bảng giá, hiển thị theo tháng - ngày và hiển thị theo list.\
+Web có 3 phần em để là Hiển thị bảng giá, hiển thị theo tháng - ngày và hiển thị theo list.
 # Bảng giá
 Bảng giá fetch data qua 2 api, hiển thị tất cả các chuyến bay rẻ nhất (và đắt nhất) trong một ngày. Chuyến nào rẻ nhất trong tháng thì có hightlight.\
 Số tháng được tính là 6 tháng tính từ tháng hiện tại.\
