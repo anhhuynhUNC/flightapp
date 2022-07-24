@@ -1,0 +1,36 @@
+07/04/2022
+TODO: Route change on input,
+	- fix fetching on month 
+	- fix only display when select
+
+
+Database change:
+- for cities: restructure in accorandance to vna json.
+
+
+
+
+
+
+
+
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-08-10 00:00:00","2022-08-12 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-10 00:00:00","2022-08-11 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-08-15 00:00:00","2022-08-17 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-15 00:00:00","2022-08-16 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-08-21 00:00:00","2022-08-23 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-21 00:00:00","2022-08-22 00:00:00",9, 10, null, null);
+
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-09-10 00:00:00","2022-09-12 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-09-10 00:00:00","2022-09-11 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-09-15 00:00:00","2022-09-17 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-09-15 00:00:00","2022-09-16 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-09-21 00:00:00","2022-09-23 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-09-21 00:00:00","2022-09-22 00:00:00",9, 10, null, null);
+
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-10-07 00:00:00","2022-10-09 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-07 00:00:00","2022-10-08 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-08-27 00:00:00","2022-10-29 00:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-27 00:00:00","2022-10-28 00:00:00",9, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-SFO","Airbus A350","2022-08-30 00:00:00","2022-10-31 22:00:00",2, 10, null, null);
+insert into flightdetail(FlightName,AircraftType,DepartureTime,ArrivalTime,RouteId,AirlineId,DepartureGate,ArrivalGate) values ("SGN-to-CDG","Airbus A350","2022-08-30 00:00:00","2022-10-31 00:00:00",9, 10, null, null);

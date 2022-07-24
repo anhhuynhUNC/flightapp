@@ -1,0 +1,16 @@
+07/04/2022
+TODO: Route change on input, Done
+	- fix fetching on month Done
+	- fix only display when select Done
+07/06/2022
+TODO: Fix Button disappearance - at List.js
+	- Implement methods for retrieval of more than just all (months, day, range)
+	- Implement filter for price or date range
+    - Average Line
+07/18/2022
+TODO: Price and Date filter does not reload list display - fix (is this necessary?)
+	
+07/20/2022
+TODO: Month display
+    - Back implementation when switching month view vs day view
+	- Block user from clicking on days multiple time

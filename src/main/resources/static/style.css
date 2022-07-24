@@ -1,0 +1,17 @@
+.chart-bar{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.bar{
+    background-color:#058CB3; 
+    height: 7px;
+    border: none;
+    width: 20px;
+    
+}
+
+.bar:hover{
+    background-color: #047696;
+}
+

@@ -1,0 +1,69 @@
+07/04/2022
+TODO: Route change on input,
+	- fix fetching on month 
+	- fix only display when select
+07/06/2022
+TODO: Fix Button disappearance
+	- Implement methods for retrieval of more than just all (months, day, range)
+	- Implement filter for price or date range
+	
+07/07/2022
+TODO : Change airport selection on react
+     - Refactor db or classes?
+     - random prices generator
+07/11/2022
+TODO : Go through each city (or route?) and scan if has a route, then create other wise populate with random generator
+      - Generator should have input dates and cities (or route?)
+      - Retrievable through the json
+
+07/12/2022 - 07/14/2022
+TODO: Fix performance issues
+      - Refactor codes to change upon updates
+      
+07/15/2022
+TODO: Add exception handling on some cases
+      - Polish rest of codes
+07/18/2022
+TODO: Restrict months to fetch
+      - Lock user from selecting too many times.
+07/24/2022
+TODO: Publish to Github.
+      
+
+A. MySQL DB: Flight
+Tables, Columns:
+
+	City
+	Route
+	Airline
+	FlightDetail
+	FlightOrder
+	Ticket
+	Time
+	Day
+	Month
+	
+Time zone?
+
+B. Represent with entities:
+
+
+
+
+C. Methods
+		Get days from months with all flights
+		Get flights from days, or with time constraint'
+		Get all flights sorted by all, month or day.
+
+
+D. Useful SQL queries
+		SELECT * FROM flightorder o INNER JOIN flightdetail d on o.OutFlight = d.FlightId 
+		RIGHT JOIN day on o.DateId = day.DateId 
+		RIGHT JOIN month m on day.MonthId = m.MonthId;
+		
+		SELECT * FROM route r inner join city c1 on c1.CityId = r.DepartCity inner join city c2 on c2.cityId = r.ArriveCity;
+		
+		select tbl.* from flightorder tbl INNER JOIN flightdetail f1 on f1.FlightId = tbl.OutFlight INNER JOIN 
+		(SELECT o.OrderId, o.Customer, Min(o.Price) minPrice, o.OutFlight, o.ReturnFlight, o.TicketId, o.DateId FROM flightOrder o 
+			inner join flightdetail f on f.FlightId = o.OutFlight where f.RouteId = 19 GROUP BY o.dateId) tbl1 
+		on tbl.DateId = tbl1.DateId where tbl.Price = tbl1.minPrice AND f1.RouteId = 19 ORDER BY tbl.DateId;
