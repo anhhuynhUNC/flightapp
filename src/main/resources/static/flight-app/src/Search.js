@@ -6,12 +6,12 @@ let port = "localhost";
 
 function Search(props) {
     let [inputs, setInput] = useState({ departInput: 'default', arriveInput: 'default', ticketInput: 1 }); //default
-    let [cities, setCity] = useState([]);
+    let [cities, setCity] = useState([{airport: null, cityId: null, name: "loading"}]);
     let [hasChange, setState] = useState(false);
     let [data, setData] = useState([]);
     let [tickets, setTicket] = useState([]);
 
-    let [arrive, setArrive] = useState([]);
+    let [arrive, setArrive] = useState([{airport: null, cityId: null, name: "loading"}]);
     let [mapping, setMapping] = useState({});
 
     // run once for retreiving cities and ticket

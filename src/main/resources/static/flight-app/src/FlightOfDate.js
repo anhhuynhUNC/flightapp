@@ -25,9 +25,9 @@ function FlightOfDate(props) {
                         <h1>Các chuyến bay trong ngày {toLocaleDate(data[0].date)}</h1>
                         <button className='mode-button' onClick={() => { props.modedisplay(0) }}><FontAwesomeIcon className="test" icon={faSquareXmark} /></button>
                     </div>
-                    <div className="flights-on-day-content-main">
+                    <div>
                         <table className="flights-on-day-table">
-                            <tbody>
+                            <thead className="flights-on-day-header">
                                 <tr className="th">
                                     <th><span onClick={daySort} className="table-head">Thời gian <FontAwesomeIcon className="test" icon={faSort} /></span></th>
                                     <th>Từ</th>
@@ -35,6 +35,8 @@ function FlightOfDate(props) {
                                     <th>Loại vé</th>
                                     <th><span onClick={priceSort} className="table-head">Giá  <FontAwesomeIcon className="test" icon={faSort} /></span></th>
                                 </tr>
+                            </thead>
+                            <tbody className="flights-on-day-content-main">
                                 {data.map(function (val, i) {
                                     return (
                                         <tr className="flights-on-day-table-value-row" key={val.orderId + ""}>

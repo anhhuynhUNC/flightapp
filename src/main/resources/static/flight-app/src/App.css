@@ -22,19 +22,36 @@ body {
 
 .flights-on-day-content-main {
   overflow-y: scroll;
-
-  white-space: nowrap;
+  display: block;
+ 
   height: 300px;
 
   width: 101.4%;
 }
 
-.flights-month-content-main {
-  overflow-y: scroll;
-  width: 101.4%;
-  height: 500px;
+.flights-on-day-header{
 
+  display: block;
 }
+.flights-on-day-header th {
+  width: 200px
+}
+
+.flights-month-content-main{
+  overflow-y: scroll;
+ 
+  height: 500px;
+  display: block;
+}
+
+.flights-month-header{
+
+  display: block;
+}
+.flights-month-header th {
+  width: 200px
+}
+
 
 .flights-table-container {
   margin: 10px;

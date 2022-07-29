@@ -33,13 +33,13 @@ function MonthList(props) {
     return (
         <div className="flights-table-container">
             {props.loading ? <div>Loading ..................</div> :
-                <div className='flights-month-content-main'>
+                <div>
                     <div className='flights-month-title'>
                         <h1>Các chuyến bay của tháng {data[0] !== undefined ? data[0].month : ''}</h1>
                         <button className='mode-button' onClick={switchMode}><FontAwesomeIcon className="test" icon={faSquareXmark} /></button>
                     </div>
                     <table className="flights-month-table">
-                        <tbody>
+                        <thead className='flights-month-header'>
                             <tr className="th">
                                 <th>Từ</th>
                                 <th>Đến</th>
@@ -47,6 +47,8 @@ function MonthList(props) {
                                 <th>Loại vé</th>
                                 <th><span onClick={priceSort} className="table-head">Giá  <FontAwesomeIcon className="test" icon={faSort} /></span></th>
                             </tr>
+                        </thead>
+                        <tbody className="flights-month-content-main">
                             {data.map(function (val, i) {
                                 return (
                                     <tr className="flights-month-table-value-row" key={val.orderId + ""}>
@@ -60,8 +62,10 @@ function MonthList(props) {
                                 )
 
                             })}
+
                         </tbody>
                     </table>
+
                 </div>}
         </div>
     )
